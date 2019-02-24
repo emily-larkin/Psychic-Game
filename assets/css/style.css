@@ -1,9 +1,18 @@
-#directions-text {
-    font-size: 26px;
-    line-height: 1.8rem;
+#header-text {
+    font-size: 28px;
+    line-height: 2.5rem;
+    font-weight: bold;
 }
 
-#wins-text, #losses-text, #guessesLeft-text, #guessesFar-text {
- font-size: 16px;
- line-height: 1.8rem;
+#directions-text {
+    font-size: 24px;
+    line-height: 2.5rem;
+}
+
+#wins-text,
+#losses-text,
+#guessesLeft-text,
+#guessesFar-text {
+    font-size: 18px;
+    line-height: 2.5rem;
 }
