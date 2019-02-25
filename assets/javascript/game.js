@@ -3,7 +3,7 @@ var wins = 0;
 var losses = 0;
 var guesses = 10;
 var guessesLeft = 10;
-var guessesFar = [ ];
+var guessesFar = [];
 
 var headerText = document.getElementById("header-text");
 var directionsText = document.getElementById("directions-text");
@@ -30,28 +30,26 @@ document.onkeyup = function (event) {
 
     var userChoice = event.key;
 
-    // if user === computer add a win and restart
     if (userChoice !== computerChoice) {
-        guesses = guesses - 1;
         guessesFar.push(" " + userChoice);
-        console.log(guesses);
+        guessesLeft = guessesLeft - 1;
     } else {
         wins = wins + 1;
         alert("You guessed " + userChoice + "! You win!");
+        guessesFar = [];
+        guessesLeft = 10;
+        computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    }
+    if (guessesLeft === 0) {
+        alert("You lose!");
+        losses = losses + 1;
+        guessesFar = [];
+        guessesLeft = 10;
+        computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     }
 
-    console.log(userChoice);
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
     guessesLeftText.textContent = "Guesses left: " + guessesLeft;
     guessesFarText.textContent = "Your guesses so far: " + guessesFar;
-
-
-    // var newGame = function() {
-    //     guessesFar = [];
-    //     guessesLeft = 10;
-    //     guesses();
-    //     guessesFar();
-    //   }
 }
-
