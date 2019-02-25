@@ -1,7 +1,9 @@
 // variables that hold the wins, losses, and guesses left/so far
 var wins = 0;
 var losses = 0;
+var guesses = 10;
 var guessesLeft = 10;
+var guessesFar = [ ];
 
 var headerText = document.getElementById("header-text");
 var directionsText = document.getElementById("directions-text");
@@ -30,7 +32,9 @@ document.onkeyup = function (event) {
 
     // if user === computer add a win and restart
     if (userChoice !== computerChoice) {
-        guessesLeft = guessesLeft - 1;
+        guesses = guesses - 1;
+        guessesFar.push(" " + userChoice);
+        console.log(guesses);
     } else {
         wins = wins + 1;
         alert("You guessed " + userChoice + "! You win!");
@@ -40,5 +44,14 @@ document.onkeyup = function (event) {
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
     guessesLeftText.textContent = "Guesses left: " + guessesLeft;
-    guessesFarText.textContent = "Your guesses so far: " + userChoice;
+    guessesFarText.textContent = "Your guesses so far: " + guessesFar;
+
+
+    // var newGame = function() {
+    //     guessesFar = [];
+    //     guessesLeft = 10;
+    //     guesses();
+    //     guessesFar();
+    //   }
 }
+
