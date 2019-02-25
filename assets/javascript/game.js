@@ -56,7 +56,7 @@ document.onkeyup = function (event) {
     // 2nd if statement when the guesses left are 0
     if (guessesLeft === 0) {
         // it tells you that you lose
-        alert("You lose!");
+        alert("You didn't guess the correct letter. You lose!");
         // ups your losses +1
         losses = losses + 1;
         // and resets the game
